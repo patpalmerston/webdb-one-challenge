@@ -7,9 +7,9 @@ const server = express();
 
 server.use(express.json());
 
-server.unsubscribe('/api/accounts', accountsRouter)
+server.use('/api/accounts', accountsRouter)
 
-server.use('/', (req, res) => {
+server.get('/', (req, res) => {
 	res.send('<h1>Hello from Todays project</h1>');
 });
 
