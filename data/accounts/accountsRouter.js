@@ -42,4 +42,19 @@ router.post('/', (req, res) => {
 		});
 });
 
+// delete account
+router.delete('/:id', (req, res) => {
+	const { id } = req.params;
+	db.remove(id)
+		.then(acc => {
+			if (acc) {
+				res.status(200).json({ Message: 'Account Deleted', id });
+			}
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({ error: 'not able to delte account' });
+		});
+});
+
 module.exports = router;
