@@ -28,4 +28,18 @@ router.get('/:id', (req, res) => {
 		});
 });
 
+// add new account
+router.post('/', (req, res) => {
+	const accData = req.body;
+	db.insert(accData)
+		.then(acc => {
+			res.status(200).json(acc);
+		})
+		.catch(err => {
+			res.status(500).json({
+				error: 'there was an error while saving the account to the database'
+			});
+		});
+});
+
 module.exports = router;
