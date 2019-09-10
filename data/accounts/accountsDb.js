@@ -9,7 +9,9 @@ module.exports = {
 };
 
 function get() {
-	return db('accounts'); // what accounts no budget.db3?
+  
+  return db('accounts'); // what accounts no budget.db3?
+ 
 }
 
 function getById(id) {
